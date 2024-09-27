@@ -5,3 +5,5 @@
 
 # Build
     export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_ossi-eng; mka vendorbootimage
+
+test
