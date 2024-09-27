@@ -1,10 +1,7 @@
 # Android device tree for oplus ossi (ossi)
 
-```
-#
-# Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-```
+# Clone
+    git clone https://github.com/User69-horny/device_oplus_weaktamin.git -b staging device/oplus/ossi
+
+# Build
+    export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_ossi-eng; mka vendorbootimage
