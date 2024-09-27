@@ -20,3 +20,4 @@
 
 # USB-OTG
 /usb_otg            auto    /dev/block/sdg1                                      display="USB-OTG";storage;wipeingui;removable
+/usb_otg            auto    /dev/block/sda1            /dev/block/sda            /dev/block/sdb            /dev/block/sdd                flags=display="USB-OTG";storage;wipeingui;removable;backup=0
