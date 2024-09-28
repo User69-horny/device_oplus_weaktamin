@@ -111,6 +111,13 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 TARGET_BOARD_PLATFORM := mt6983
 
+# Hardware
+BOARD_USES_MTK_HARDWARE := true
+
+# Resolution
+TARGET_SCREEN_HEIGHT := 2772
+TARGET_SCREEN_WIDTH := 1240
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.emmc
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
@@ -122,9 +129,6 @@ BOARD_AVB_ENABLE := true
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-
-# Inherit the proprietary files
-include vendor/oplus/ossi/BoardConfigVendor.mk
 
 # Vendor_boot recovery ramdisk
 BOARD_USES_RECOVERY_AS_BOOT := 
