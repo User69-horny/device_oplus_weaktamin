@@ -47,14 +47,27 @@ PRODUCT_PACKAGES += \
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
-    fastbootd
+    fastbootd 
+   
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1
 
-# Recovery libs
+# Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libion 
+    android.hardware.keymaster@4.1
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hardware.keymaster@4.1
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_DEVICE=OP556FL1 \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
+	$(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so
 
 # Health
 PRODUCT_PACKAGES += \
