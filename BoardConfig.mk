@@ -1,10 +1,19 @@
 #
-# Copyright (C) 2024 The LineageOS Project
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 DEVICE_PATH := device/oplus/ossi
+
+# For building with minimal manifest
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+SOONG_ALLOW_MISSING_DEPENDENCIES := true
+ALLOW_MISSING_DEPENDENCIES := true
 
 # A/B
 AB_OTA_UPDATER := true
@@ -17,8 +26,8 @@ AB_OTA_PARTITIONS += \
     product \
     vbmeta_vendor \
     vendor_dlkm \
+    vendor_boot \
     vendor
-BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -34,6 +43,15 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
+
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
+
+# Assertation
+TARGET_OTA_ASSERT_DEVICE := ossi
+
+# APEX
+#DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := k6983v1_64
@@ -57,7 +75,6 @@ TARGET_KERNEL_SOURCE := kernel/oplus/ossi
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 BOARD_INCLUDE_DTB_IN_BOOTIMG := 
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
@@ -119,7 +136,6 @@ TARGET_SCREEN_HEIGHT := 2772
 TARGET_SCREEN_WIDTH := 1240
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.emmc
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -133,7 +149,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # Vendor_boot recovery ramdisk
 BOARD_USES_RECOVERY_AS_BOOT := 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := 
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := 
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := 
 TW_LOAD_VENDOR_BOOT_MODULES := true
