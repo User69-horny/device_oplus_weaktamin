@@ -1,7 +1,11 @@
 /boot               emmc    /dev/block/by-name/boot                   flags=slotselect;display="Boot Image";backup=1;flashimg=1
+/cache            ext4     /dev/block/by-name/cache                   flags=slotselect;display="Cache";backup=1;wipeingui
 /dtbo               emmc    /dev/block/by-name/dtbo                   flags=slotselect;display="DTBO Image";backup=1;flashimg=1
 /init_boot          emmc    /dev/block/by-name/init_boot              flags=slotselect;display="Init Boot Image";backup=1;flashimg=1
 /vendor_boot        emmc    /dev/block/by-name/vendor_boot            flags=slotselect;display="Vendor Boot Image";backup=1;flashimg=1
+
+/data               f2fs     /dev/block/by-name/userdata                fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts
+/metadata           ext4     /dev/block/by-name/metadata                flags=display="Metadata"
 
 # AVB Partition
 /vbmeta             emmc    /dev/block/by-name/vbmeta                 flags=slotselect;display="VBMeta Image";backup=1;flashimg=1
@@ -18,4 +22,5 @@
 /persist_image      emmc    /dev/block/by-name/persist                flags=display="Persist Image";backup=1;flashimg=1
 
 # USB-OTG
-/usb_otg            auto     /dev/block/sdd     /dev/block/sdd1             flags=display="USB-OTG";storage;wipeingui;removable;backup=0
+/usb_otg            auto     /dev/block/sdd     /dev/block/sdd1             flags=display="USB-OTG";storage;wipeingui;removable;fsflags="utf8";backup=0
+/external_sd	      auto	    /dev/block/mmcblk0p1			flags=display="SD Card";storage;removable;fsflags="utf8"
