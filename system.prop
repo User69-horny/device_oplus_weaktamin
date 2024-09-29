@@ -1,0 +1,19 @@
+# Dynamic Partitions
+ro.boot.dynamic_partitions=true
+
+# Fstab
+ro.postinstall.fstab.prefix=/system
+
+# USB MTP
+ro.sys.usb.storage.type=mtp
+
+# Misc
+ro.adb.secure=0
+
+# MTK
+ro.vendor.mediatek.platform=MT6983
+ro.hardware=mt6983
+
+# Board
+ro.product.device=ossi
+ro.build.product=ossi
