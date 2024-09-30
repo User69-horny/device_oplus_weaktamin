@@ -21,6 +21,11 @@
 /persist            ext4    /dev/block/by-name/persist                flags=display="Persist"
 /persist_image      emmc    /dev/block/by-name/persist                flags=display="Persist Image";backup=1;flashimg=1
 
+/devices/platform/externdevice* auto auto defaults voldmanaged=sdcard1:auto
+
 # USB-OTG
-/usb_otg            auto     /dev/block/sdd1     /dev/block/sdd             flags=display="USB-OTG";storage;wipeingui;removable;fsflags="utf8";backup=0
-/external_sd	      auto	   /dev/block/mmcblk0p1			flags=display="SD Card";storage;removable;fsflags="utf8"
+/devices/platform/11200000.usb3_xhci* auto vfat defaults voldmanaged=usbotg:auto
+
+
+/dev/block/mmcblk0p1 /external_sd vfat  nosuid,nodev defaults
+/dev/block/sdd1 /usb_otg vfat nosuid,nodev defaults
