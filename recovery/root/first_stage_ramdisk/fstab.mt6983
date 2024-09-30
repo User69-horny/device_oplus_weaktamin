@@ -49,6 +49,8 @@ my_bigball /mnt/vendor/my_bigball ext4 ro,barrier=1 wait,slotselect,logical,firs
 my_bigball /mnt/vendor/my_bigball erofs ro wait,slotselect,logical,first_stage_mount,nofail
 my_manifest /mnt/vendor/my_manifest ext4 ro,barrier=1 wait,slotselect,logical,first_stage_mount,nofail
 my_manifest /mnt/vendor/my_manifest erofs ro wait,slotselect,logical,first_stage_mount,nofail
+my_colorospro /mnt/vendor/my_colorospro ext4 ro,barrier=1 wait,slotselect,logical,first_stage_mount,nofail
+my_colorospro /mnt/vendor/my_colorospro erofs ro wait,slotselect,logical,first_stage_mount,nofail
 
 /dev/block/by-name/oplusreserve2 /mnt/vendor/oplusreserve ext4 nosuid,nodev,noatime,barrier=1 wait,check,first_stage_mount,nofail
 /dev/block/by-name/oplusreserve2 /mnt/oplus/op2 ext4 nosuid,nodev,noatime,barrier=1 check,first_stage_mount,nofail
@@ -63,19 +65,22 @@ my_manifest /mnt/vendor/my_manifest erofs ro wait,slotselect,logical,first_stage
 /mnt/vendor/my_preload /my_preload none ro,bind wait,nofail
 /mnt/vendor/my_bigball /my_bigball none ro,bind wait,nofail
 /mnt/vendor/my_manifest /my_manifest none ro,bind wait,nofail
+/mnt/vendor/my_colorospro /my_colorospro none ro,bind wait,nofail
 
 
 
 vendor_dlkm /vendor_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
+vendor_dlkm /vendor_dlkm erofs ro wait,slotselect,avb,logical,first_stage_mount
 
 
 odm_dlkm /odm_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
+odm_dlkm /odm_dlkm erofs ro wait,slotselect,avb,logical,first_stage_mount
 
 
 
 /dev/block/by-name/metadata /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,fscompress
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
 
 
 
