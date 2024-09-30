@@ -10,22 +10,27 @@
 /dev/block/sdb                                   0660    root    system
 /dev/block/sdc                                   0660    root    system
 
+# OTG USB
+/dev/block/sdd                                   0660    root    media_rw
+
 # eMMC/UFS common
-/dev/block/platform/by-name/misc2     0660    root    system
-/dev/block/platform/by-name/boot      0640    root    system
-/dev/block/platform/by-name/recovery  0640    root    system
-/dev/block/platform/by-name/secro     0640    root    system
-/dev/block/platform/by-name/seccfg    0660    root    system
-/dev/block/platform/by-name/proinfo   0660    root    system
-/dev/block/platform/by-name/nvram     0660    root    system
-/dev/block/platform/by-name/para      0660    root    system
-/dev/block/platform/by-name/logo      0660    root    system
-/dev/block/platform/by-name/frp       0660    root    system
-/dev/block/platform/by-name/md1img    0640    root    system
-/dev/block/platform/by-name/md1img_a  0640    root    system
-/dev/block/platform/by-name/md1img_b  0640    root    system
-/dev/block/platform/by-name/md1dsp    0660    root    system
-/dev/block/platform/by-name/boot_para 0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/misc2         0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/boot_a        0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/boot_b        0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/vendor_boot_a 0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/vendor_boot_b 0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/secro         0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/seccfg        0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/proinfo       0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/nvram         0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/logo_a        0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/logo_b        0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/frp           0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/md1img_a      0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/md1img_b      0640    root    system
+/dev/block/platform/112b0000.ufshci/by-name/para          0660    root    system
+/dev/block/platform/112b0000.ufshci/by-name/boot_para     0640    root    system
+
 
 # OTP
 /dev/otp                  0660   system     system
