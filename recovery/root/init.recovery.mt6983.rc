@@ -5,7 +5,7 @@ import /trustonic.rc
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     # Create a more standard /dev/block layout for our scripts
-    symlink /dev/block/platform/112b0000.ufshci/by-name /dev/block/by-name
+    symlink /dev/block/platform/112b0000.ufshci/ /dev/block/
 
 on fs
     install_keyring
