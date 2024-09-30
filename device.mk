@@ -9,7 +9,6 @@ LOCAL_PATH := device/oplus/ossi
 
 # A/B
 AB_OTA_UPDATER := true
-AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
@@ -49,12 +48,14 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
-# Recovery libs
+# Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libion 
+    libion \
+    libxml2
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 
 # Health
 PRODUCT_PACKAGES += \
@@ -65,6 +66,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
+
+# Hidl Service
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
