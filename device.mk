@@ -58,6 +58,14 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libkeymaster41 \
+    libpuresoftkeymasterdevice
+RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4.0
     android.hardware.keymaster@4
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
