@@ -48,36 +48,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd 
-   
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0
-    android.hardware.keymaster@4
-# Additional binaries & libraries needed for recovery
-TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.keymaster@4.0
-    android.hardware.keymaster@4
+
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
     libkeymaster41 \
     libpuresoftkeymasterdevice
+
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.keymaster@4.0
-    android.hardware.keymaster@4
+
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.0.so
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE=OP556FL1 \
-
-RECOVERY_LIBRARY_SOURCE_FILES += \
-	$(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so
 
 # Health
 PRODUCT_PACKAGES += \
@@ -95,3 +84,9 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+
+
+
+
+
