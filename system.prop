@@ -12,7 +12,7 @@ ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_microtrust_tee_support=1
 
 # Gatekeeper
-ro.hardware.gatekeeper=beanpod
+ro.hardware.gatekeeper=trustonic
 
 # HideReflashTWRP
 ro.twrp.vendor_boot=true
