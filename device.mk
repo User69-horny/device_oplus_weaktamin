@@ -37,11 +37,16 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-mtkimpl \
-    android.hardware.boot@1.2-mtkimpl.recovery
+     android.hardware.boot@1.2-service \
+     android.hardware.boot@1.2-mtkimpl \
+     android.hardware.boot@1.2-mtkimpl.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl
+
+PRODUCT_PACKAGES += \
+     bootctrl.mt6983 \
+     bootctrl.mt6983.recovery
 
 # Health
 PRODUCT_PACKAGES += \
@@ -74,9 +79,6 @@ PRODUCT_PACKAGES += \
 # Additional target Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4.1
-    
-TARGET_INIT_VENDOR_LIB := libinit_daumier
-TARGET_RECOVERY_DEVICE_MODULES := libinit_daumier
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so
