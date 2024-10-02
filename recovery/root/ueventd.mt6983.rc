@@ -11,31 +11,35 @@
 /dev/block/sdc                                   0660    root    system
 
 # eMMC/UFS common
-/dev/block/platform/by-name/misc2     0660    root    system
-/dev/block/platform/by-name/boot      0640    root    system
-/dev/block/platform/by-name/recovery  0640    root    system
-/dev/block/platform/by-name/secro     0640    root    system
-/dev/block/platform/by-name/seccfg    0660    root    system
-/dev/block/platform/by-name/proinfo   0660    root    system
-/dev/block/platform/by-name/nvram     0660    root    system
-/dev/block/platform/by-name/para      0660    root    system
-/dev/block/platform/by-name/logo      0660    root    system
-/dev/block/platform/by-name/frp       0660    root    system
-/dev/block/platform/by-name/md1img    0640    root    system
-/dev/block/platform/by-name/md1img_a  0640    root    system
-/dev/block/platform/by-name/md1img_b  0640    root    system
-/dev/block/platform/by-name/md1dsp    0660    root    system
-/dev/block/platform/by-name/boot_para 0640    root    system
+/dev/block/by-name/misc2     0660    root    system
+/dev/block/by-name/boot      0640    root    system
+/dev/block/by-name/recovery  0640    root    system
+/dev/block/by-name/secro     0640    root    system
+/dev/block/by-name/seccfg    0660    root    system
+/dev/block/by-name/proinfo   0660    root    system
+/dev/block/by-name/nvram     0660    root    system
+/dev/block/by-name/para      0660    root    system
+/dev/block/by-name/logo      0660    root    system
+/dev/block/by-name/frp       0660    root    system
+/dev/block/by-name/md1img    0640    root    system
+/dev/block/by-name/md1img_a  0640    root    system
+/dev/block/by-name/md1img_b  0640    root    system
+/dev/block/by-name/md1dsp    0660    root    system
+/dev/block/by-name/boot_para 0640    root    system
 
 # OTP
 /dev/otp                  0660   system     system
-/dev/block/platform/by-name/otp       0660    root    system
+/dev/block/by-name/otp       0660    root    system
 
 # Connectivity
 /dev/stpwmt               0660   system     system
 /dev/wmtdetect            0660   system     system
 /dev/fw_log_wmt           0660   system     system
+/dev/fw_log_wifimcu       0660   system     system
+/dev/fw_log_btmcu         0660   system     system
 /dev/conninfra_dev        0660   system     system
+/dev/conn_scp             0660   system     system
+/dev/conn_pwr_dev         0660   system     system
 
 # BT
 /dev/stpbt                0660   bluetooth  bluetooth
@@ -47,6 +51,8 @@
 /dev/stpgps               0660   gps        gps
 /dev/gps                  0660   gps        system
 /dev/gps_emi              0660   gps        gps
+/dev/gps2scp              0660   gps        gps
+/dev/gps_pwr              0660   gps        gps
 
 # ANT
 /dev/stpant               0660   system     system
@@ -54,9 +60,13 @@
 # WIFI
 /dev/wmtWifi              0660   wifi     wifi
 /dev/fw_log_wifi          0660   wifi     wifi
+/dev/fw_log_ics           0660   wifi     wifi
 
 # FMRadio
 /dev/fm                   0660   media     media
+
+# ConnFem
+/dev/connfem              0660   system     system
 
 # NFC
 /dev/st21nfc              0660   nfc        radio
@@ -76,6 +86,9 @@
 /dev/mobicore             0600   system     system
 /dev/mobicore-user        0666   system     system
 /dev/t-base-tui           0666   system     system
+
+# teeperf driver
+/dev/teeperf              0666   system     system
 
 #v4l2 device
 /dev/video*      0660 camera system
@@ -146,10 +159,31 @@
 /dev/ttyRB*               0660   radio      radio
 
 # Mali node
-/dev/mali                 0666   system     graphics
+/dev/mali0                0666   system     graphics
 
 # Change ION driver permission
 /dev/ion                  0666   system     graphics
+
+# Change DMA_HEAP deice permission
+#     refs: /system/core/rootdir/uevent.rc
+#           /dev/dma_heap/system      0444   system     system
+/dev/dma_heap/mtk_mm                        0444   system     system
+/dev/dma_heap/mtk_mm-uncached               0444   system     system
+/dev/dma_heap/mtk_svp_page-uncached                 0444   system     system
+/dev/dma_heap/mtk_prot_page-uncached                0444   system     system
+/dev/dma_heap/mtk_svp_region                        0444   system     system
+/dev/dma_heap/mtk_svp_region-aligned                0444   system     system
+/dev/dma_heap/mtk_prot_region                       0444   system     system
+/dev/dma_heap/mtk_prot_region-aligned               0444   system     system
+/dev/dma_heap/mtk_2d_fr_region                      0444   system     system
+/dev/dma_heap/mtk_2d_fr_region-aligned              0444   system     system
+/dev/dma_heap/mtk_wfd_region                        0444   system     system
+/dev/dma_heap/mtk_wfd_region-aligned                0444   system     system
+/dev/dma_heap/mtk_wfd_page-uncached                 0444   system     system
+/dev/dma_heap/mtk_sapu_data_shm_region              0444   system     system
+/dev/dma_heap/mtk_sapu_data_shm_region-aligned      0444   system     system
+/dev/dma_heap/mtk_sapu_engine_shm_region            0444   system     system
+/dev/dma_heap/mtk_sapu_engine_shm_region-aligned    0444   system     system
 
 #touch
 /dev/touch                0660   root       system
@@ -161,3 +195,9 @@
 
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
+#CCU
+/dev/ccu*      0660 system camera
+
+#elliptic sensor
+/dev/elliptic0            0644   system     system
+/dev/elliptic1            0644   system     system
